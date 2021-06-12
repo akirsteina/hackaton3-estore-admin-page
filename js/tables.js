@@ -17,6 +17,10 @@ $('#products-table').dataTable({
     "language": {
         "search": "Search products: "
     },
+    "lengthMenu": [
+        [4, -1],
+        [4, "All"]
+    ],
     "columns": [
         { "orderable": false },
         null,
