@@ -88,7 +88,7 @@ $('#create-category-form').submit(function(event) {
         <td>
             <div class="d-grid gap-2 d-md-flex justify-content-md-end">
                 <button type="button" class="btn btn-dark edit-category-btn">Edit</button>
-                <button type="button" class="btn btn-danger remove-button">Remove</button>
+                <button type="button" class="btn btn-secondary remove-button">Remove</button>
             </div>
         </td>
     </tr>`

@@ -3,13 +3,12 @@ body {
 }
 
 .login-page {
-    background-image:url(../images/background.jpg);
-    background-size:cover;
+    background-image: url(../images/background.jpg);
+    background-size: cover;
     background-repeat: no-repeat;
 }
 
 .form-signin {
-    
     background-color: rgb(51, 85, 130, 0.5);
     width: 100%;
     max-width: 330px;
@@ -20,18 +19,42 @@ body {
 .navbar-bottom {
     background-color: rgb(33, 57, 88);
     text-align: left;
-    
 }
 
 .btn-secondary {
     background-color: rgb(252, 20, 103);
     border: rgb(252, 20, 103);
-
 }
 
 .side-bar {
     width: 200px;
-    background-image:url(../images/navbar.jpg);
-    background-size:cover;
+    background-image: url(../images/navbar.jpg);
+    background-size: cover;
     box-shadow: black, 5px;
+}
+
+
+/* scrollbar */
+
+
+/* scrollbarr */
+
+body {
+    overflow-x: hidden;
+}
+
+::-webkit-scrollbar {
+    width: 15px;
+}
+
+ ::-webkit-scrollbar-track {
+    background: #f1f1f1;
+}
+
+ ::-webkit-scrollbar-thumb {
+    background: #888;
+}
+
+ ::-webkit-scrollbar-thumb:hover {
+    background: #555;
 }
