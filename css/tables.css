@@ -7,7 +7,8 @@
     display: none;
 }
 
-#create-category-form {
+#create-category-form,
+#edit-category-form {
     padding: 10px;
     border: 1px solid #212529;
     border-radius: 5px;

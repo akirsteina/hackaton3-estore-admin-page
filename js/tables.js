@@ -87,17 +87,22 @@ $('#create-category-form').submit(function(event) {
     $('#category-id').val('');
     $('#category-title').val('');
     $('#category-description').val('');
-    $("#create-table-element-field").toggleClass("hidden");
+    $('#create-table-element-field').toggleClass('hidden');
 });
 
 // toggle edit category field
 $('.edit-category-btn').on('click', function() {
     hideCreateTableElement();
+    $('#edit-table-element-field').toggleClass('hidden');
+    const categoryID = $(this).parentsUntil('.category').find('.category-id-value').html();
+    const categoryTitle = $(this).parentsUntil('.category').find('.category-title-value').html();
+    const categoryDescription = $(this).parentsUntil('.category').find('.category-description-value').html();
+    console.log(categoryID, categoryTitle, categoryDescription)
 })
 
 // edit category
 
-$('#create-category-form').submit(function(event) {
+// $('#create-category-form').submit(function(event) {
 
 
-})
+// })
