@@ -27,7 +27,7 @@ body {
 }
 
 .side-bar {
-    width: 200px;
+    
     background-image: url(../images/navbar.jpg);
     background-size: cover;
     box-shadow: black, 5px;
