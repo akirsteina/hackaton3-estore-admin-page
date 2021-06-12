@@ -51,6 +51,22 @@ $('.toggle-create-table-element-btn').on('click', function() {
 
 });
 
+const validateInput = (id, title, description) => {
+    if (id === '' && title === '' && description === '') {
+        return;
+    } else if (id === '') {
+        alert('Please enter category ID!');
+        return;
+    } else if (title === '') {
+        alert('Please enter category title!');
+        return;
+    } else if (description === '') {
+        alert('Please enter category description!');
+        return;
+    }
+    return true;
+};
+
 // create category element
 $('#create-category-form').submit(function(event) {
     event.preventDefault();
@@ -58,17 +74,10 @@ $('#create-category-form').submit(function(event) {
     const categoryTitle = $('#category-title').val();
     const categoryDescription = $('#category-description').val();
     // validation for empty fields
-    if (categoryID === '' && categoryTitle === '' && categoryDescription === '') {
+    while (!validateInput(categoryID, categoryTitle, categoryDescription)) {
         return;
-    } else if (categoryID === '') {
-        alert('Please enter category ID!');
-        return;
-    } else if (categoryTitle === '') {
-        alert('Please enter category title!');
-        return;
-    } else if (categoryDescription === '') {
-        alert('Please enter category description!');
-    }
+    };
+
     // add new table element
     const newCategory = `
     <tr>
@@ -93,16 +102,24 @@ $('#create-category-form').submit(function(event) {
 // toggle edit category field
 $('.edit-category-btn').on('click', function() {
     hideCreateTableElement();
-    $('#edit-table-element-field').toggleClass('hidden');
-    const categoryID = $(this).parentsUntil('.category').find('.category-id-value').html();
-    const categoryTitle = $(this).parentsUntil('.category').find('.category-title-value').html();
-    const categoryDescription = $(this).parentsUntil('.category').find('.category-description-value').html();
-    console.log(categoryID, categoryTitle, categoryDescription)
+    $('#edit-table-element-field').removeClass('hidden');
+    $('#edit-category-id').val($(this).parentsUntil('tbody').find('.category-id-value').html());
+    $('#edit-category-title').val($(this).parentsUntil('tbody').find('.category-title-value').html());
+    $('#edit-category-description').val($(this).parentsUntil('tbody').find('.category-description-value').html());
+    // edit category
+    let categoryID = '';
+    let categoryTitle = '';
+    let categoryDescription = '';
+    $('#edit-category-form').submit(function(event) {
+        event.preventDefault();
+        categoryID = $('#edit-category-id').val();
+        categoryTitle = $('#edit-category-title').val();
+        categoryDescription = $('#edit-category-description').val();
+        while (!validateInput(categoryID, categoryTitle, categoryDescription)) {
+            return;
+        };
+        $(this).parentsUntil('tr').find('.category-id-value').html(categoryID);
+        $(this).parentsUntil('tr').find('.category-title-value').html(categoryTitle);
+        $(this).parentsUntil('tr').find('.category-description-value').html(categoryDescription);
+    });
 })
-
-// edit category
-
-// $('#create-category-form').submit(function(event) {
-
-
-// })
