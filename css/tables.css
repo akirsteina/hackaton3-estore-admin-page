@@ -31,10 +31,25 @@
     border-color: #343a40 !important;
 }
 
+#products-table_paginate>span>a.paginate_button.current {
+    margin-top: 10px;
+    margin-bottom: 50px;
+    color: #343a40 !important;
+    background: #fff !important;
+    border-color: #fff !important;
+}
+
 a#products-table_previous,
 a#products-table_next {
     color: white !important;
     padding: 5px;
+}
+
+a#products-table_previous:hover,
+a#products-table_next:hover {
+    background: none;
+    border: none;
+    color: rgb(252, 20, 103)!important;
 }
 
 .table {

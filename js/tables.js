@@ -21,6 +21,9 @@ $('#products-table').dataTable({
         [4, -1],
         [4, "All"]
     ],
+    "order": [
+        [1, 'asc']
+    ],
     "columns": [
         { "orderable": false },
         null,
@@ -143,3 +146,8 @@ $('.edit-category-btn').on('click', function() {
         $('#edit-table-element-field').toggleClass('hidden');
     });
 })
+
+$('.btn-close').on('click', function() {
+    $('#create-table-element-field').addClass('hidden');
+    $('#edit-table-element-field').addClass('hidden');
+});
