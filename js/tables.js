@@ -35,6 +35,30 @@ $('#products-table').dataTable({
     ]
 });
 
+$('#orders-table').dataTable({
+    "sDom": ' f t  p',
+    "language": {
+        "search": "Search orders: "
+    },
+    "lengthMenu": [
+        [10, -1],
+        [10, "All"]
+    ],
+    "order": [
+        [0, 'dsc']
+    ],
+    "columns": [
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        { "orderable": false },
+        { "orderable": false }
+    ]
+});
+
 
 // hide create table element if visible
 const hideCreateTableElement = () => {

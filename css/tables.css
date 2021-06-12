@@ -19,11 +19,14 @@
 #categories-table_filter,
 #categories-table_filter input,
 #products-table_filter,
-#products-table_filter input {
+#products-table_filter input,
+#orders-table_filter,
+#orders-table_filter input {
     color: white;
 }
 
-#products-table_paginate>span>a {
+#products-table_paginate>span>a,
+#orders-table_paginate>span>a {
     margin-top: 10px;
     margin-bottom: 50px;
     color: #fff !important;
@@ -31,7 +34,8 @@
     border-color: #343a40 !important;
 }
 
-#products-table_paginate>span>a.paginate_button.current {
+#products-table_paginate>span>a.paginate_button.current,
+#orders-table_paginate>span>a.paginate_button.current {
     margin-top: 10px;
     margin-bottom: 50px;
     color: #343a40 !important;
@@ -40,13 +44,17 @@
 }
 
 a#products-table_previous,
-a#products-table_next {
+a#products-table_next,
+a#orders-table_previous,
+a#orders-table_next {
     color: white !important;
     padding: 5px;
 }
 
 a#products-table_previous:hover,
-a#products-table_next:hover {
+a#products-table_next:hover,
+a#orders-table_previous:hover,
+a#orders-table_next:hover {
     background: none;
     border: none;
     color: rgb(252, 20, 103)!important;

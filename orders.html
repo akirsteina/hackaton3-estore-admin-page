@@ -10,78 +10,309 @@
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-eOJMYsd53ii+scO/bJGFsiCZc+5NDVN2yr8+0RDqr0Ql0h+rP48ckxlpbzKgwra6" crossorigin="anonymous">
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.6.0/dist/css/bootstrap.min.css" integrity="sha384-B0vP5xmATw1+K9KRQjQERJvTumQW0nPEzvF6L/Z6nronJ3oUOFUFpCjEUQouq2+l" crossorigin="anonymous">
     <link rel="stylesheet" href="./css/main.css">
-
+    <!-- dataTables -->
+    <link rel="stylesheet" type="text/css" href="https://cdn.datatables.net/1.10.25/css/jquery.dataTables.css">
+    <link rel="stylesheet" href="./css/tables.css">
 </head>
 
 <body>
-  <div class=" container min-w-100 vh-100 m-0 p-0">
-    <div class="row min-w-100 vh-100 m-0 p-0">
-       
-        <div class="d-flex flex-column flex-shrink-0 p-3 text-white bg-dark vh-100 side-bar ">
-            <a href="" class="d-flex align-items-center mb-3 mb-md-0 me-md-auto text-white text-decoration-none logo">
-                <svg class="bi me-2" width="40" height="32">
-                    <use xlink:href="#bootstrap"></use>
-                </svg>
-                <img class="w-100 p-4" src="./images/logo.png" alt="">
-            </a>
-            <hr>
-    
-            <ul class="nav nav-pills flex-column mb-auto">
-    
-                <li>
-                    <a href="./categories.html" class=" btn-outline-secondary nav-link text-white fs-5">
-                        <svg class="bi me-2 " width="16" height="16">
-                            <use xlink:href="#table"></use>
-                        </svg>
-                        Categories
+    <div class="container-fluid p-0">
+        <div class="row">
+            <div class="col-2">
+                <div class="d-flex flex-column flex-shrink-0 p-3 text-white bg-dark vh-100 side-bar">
+                    <a href="" class="d-flex align-items-center mb-3 mb-md-0 me-md-auto text-white text-decoration-none logo">
+                        <svg class="bi me-2" width="40" height="32"><use xlink:href="#bootstrap"></use></svg>
+                        <img class="w-100 p-4" src="./images/logo.png" alt="">
                     </a>
-                </li>
-                <li>
-                    <a href="./products.html" class="btn-outline-secondary nav-link text-white fs-5">
-                        <svg class="bi me-2" width="16" height="16">
-                            <use xlink:href="#grid"></use>
-                        </svg>
-                        Products
-                    </a>
-                </li>
-                <li>
-                    <a href="./orders.html" class="border border-white btn-outline-secondary nav-link text-white fs-5">
-                        <svg class="bi me-2" width="16" height="16">
-                            <use xlink:href="#table"></use>
-                        </svg>
-                        Orders
-                    </a>
-                </li>
-    
-                <li>
-                    <a href="./login.html" class="btn-outline-secondary nav-link text-white fs-5">
-                        <svg class="bi me-2" width="16" height="16">
-                            <use href=""></use>
-                        </svg>
-                        Log out
-                    </a>
-                </li>
-            </ul>
-            <hr>
-    
-        </div>
-        <div class="me-5 col m-0 p-0">
-            <h3 class="m-3 text-white">Orders</h3>
-           
+                    <hr>
+                    <ul class="nav nav-pills flex-column mb-auto">
+                        <li>
+                            <a href="./categories.html" class="  btn-outline-secondary nav-link text-white">
+                                <svg class="bi me-2 " width="16" height="16"><use xlink:href="#table"></use></svg> Categories
+                            </a>
+                        </li>
+                        <li>
+                            <a href="./products.html" class="btn-outline-secondary nav-link text-white">
+                                <svg class="bi me-2" width="16" height="16"><use xlink:href="#grid"></use></svg> Products
+                            </a>
+                        </li>
+                        <li>
+                            <a href="./orders.html" class=" border border-white btn-outline-secondary nav-link text-white">
+                                <svg class="bi me-2" width="16" height="16"><use xlink:href="#table"></use></svg> Orders
+                            </a>
+                        </li>
+
+                        <li>
+                            <a href="./login.html" class="btn-outline-secondary nav-link text-white">
+                                <svg class="bi me-2" width="16" height="16"><use href=""></use></svg> Log out
+                            </a>
+                        </li>
+                    </ul>
+                    <hr>
+
+                </div>
+            </div>
+
+
+            <div class="col-10 pr-5">
+                <div class="row">
+                    <div class="col">
+
+                        <div class="pt-1">
+                            <h3 class="text-white text-center pt-3">Orders</h3>
+                        </div>
+
+                        <!-- table row -->
+                        <div class="row">
+                            <div class="col">
+                                <div class="table-responsive pt-2">
+                                    <table class="table table-hover" id="orders-table">
+                                        <!-- table head -->
+                                        <thead>
+                                            <tr class="text-center">
+                                                <th scope="col">#</th>
+                                                <th scope="col">Customer</th>
+                                                <th scope="col">Product count</th>
+                                                <th scope="col">Price</th>
+                                                <th scope="col">VAT</th>
+                                                <th scope="col">Total</th>
+                                                <th>Status</th>
+                                                <th></th>
+                                            </tr>
+                                        </thead>
+                                        <!-- table body  -->
+                                        <tbody>
+                                            <!-- row -->
+                                            <tr class="text-center">
+                                                <td class="order-id-value">11</td>
+                                                <td class="order-customer-value">Karlis Palis, Visvalza iela 44-b, Madona, LV-0000</td>
+                                                <td class="order-count-value">3</td>
+                                                <td class="order-price-value">33$</td>
+                                                <td class="order-VAT-value ">3$</td>
+                                                <td class="order-total-value">36$</td>
+                                                <td class="order-status"><span class="badge bg-warning text-dark">Pending</span></td>
+                                                <td>
+                                                    <div class="d-grid gap-2 d-md-flex justify-content-md-end">
+                                                        <button type="button" class="btn btn-dark edit-order-btn">Edit</button>
+                                                        <button type="button" class="btn btn-secondary remove-button">Remove</button>
+                                                    </div>
+                                                </td>
+                                            </tr>
+                                            <!-- row -->
+                                            <tr class="text-center">
+                                                <td class="order-id-value">12</td>
+                                                <td class="order-customer-value">Jasmina Vasara, Lapu iela 44-b, Liepajas novads, Grobinas pagasts, LV-0000</td>
+                                                <td class="order-count-value">5</td>
+                                                <td class="order-price-value">55$</td>
+                                                <td class="order-VAT-value ">5$</td>
+                                                <td class="order-total-value">60$</td>
+                                                <td class="order-status"><span class="badge bg-warning text-dark">Pending</span></td>
+                                                <td>
+                                                    <div class="d-grid gap-2 d-md-flex justify-content-md-end">
+                                                        <button type="button" class="btn btn-dark edit-order-btn">Edit</button>
+                                                        <button type="button" class="btn btn-secondary remove-button">Remove</button>
+                                                    </div>
+                                                </td>
+                                            </tr>
+
+                                            <!-- row -->
+                                            <tr class="text-center">
+                                                <td class="order-id-value">10</td>
+                                                <td class="order-customer-value">Juris Muris, Talsu iela 4, Riga, LV-0000</td>
+                                                <td class="order-count-value">1</td>
+                                                <td class="order-price-value">100$</td>
+                                                <td class="order-VAT-value ">10$</td>
+                                                <td class="order-total-value">110$</td>
+                                                <td class="order-status"><span class="badge bg-warning text-dark">Pending</span></td>
+                                                <td>
+                                                    <div class="d-grid gap-2 d-md-flex justify-content-md-end">
+                                                        <button type="button" class="btn btn-dark edit-order-btn">Edit</button>
+                                                        <button type="button" class="btn btn-secondary remove-button">Remove</button>
+                                                    </div>
+                                                </td>
+                                            </tr>
+
+                                            <!-- row -->
+                                            <tr class="text-center">
+                                                <td class="order-id-value">9</td>
+                                                <td class="order-customer-value">Anna Panna, Brivibas iela 111, Jelgavas novads, Lauki, LV-0000</td>
+                                                <td class="order-count-value">4</td>
+                                                <td class="order-price-value">100$</td>
+                                                <td class="order-VAT-value ">10$</td>
+                                                <td class="order-total-value">110$</td>
+                                                <td class="order-status"><span class="badge bg-success">Finished</span></td>
+                                                <td>
+                                                    <div class="d-grid gap-2 d-md-flex justify-content-md-end">
+                                                        <button type="button" class="btn btn-dark edit-order-btn">Edit</button>
+                                                        <button type="button" class="btn btn-secondary remove-button">Remove</button>
+                                                    </div>
+                                                </td>
+                                            </tr>
+                                            <!-- row -->
+                                            <tr class="text-center">
+                                                <td class="order-id-value">8</td>
+                                                <td class="order-customer-value">Juris Muris, Talsu iela 4, Riga, LV-0000</td>
+                                                <td class="order-count-value">2</td>
+                                                <td class="order-price-value">900$</td>
+                                                <td class="order-VAT-value ">90$</td>
+                                                <td class="order-total-value">910$</td>
+                                                <td class="order-status"><span class="badge bg-danger">Canceled</span></td>
+                                                <td>
+                                                    <div class="d-grid gap-2 d-md-flex justify-content-md-end">
+                                                        <button type="button" class="btn btn-dark edit-order-btn">Edit</button>
+                                                        <button type="button" class="btn btn-secondary remove-button">Remove</button>
+                                                    </div>
+                                                </td>
+                                            </tr>
+                                            <!-- row -->
+                                            <tr class="text-center">
+                                                <td class="order-id-value">7</td>
+                                                <td class="order-customer-value">Zaiga Gane, Jomas iela 111, Jelgavas novads, Lauki, LV-0000</td>
+                                                <td class="order-count-value">5</td>
+                                                <td class="order-price-value">100000$</td>
+                                                <td class="order-VAT-value ">10$</td>
+                                                <td class="order-total-value">110000$</td>
+                                                <td class="order-status"><span class="badge bg-success">Finished</span></td>
+                                                <td>
+                                                    <div class="d-grid gap-2 d-md-flex justify-content-md-end">
+                                                        <button type="button" class="btn btn-dark edit-order-btn">Edit</button>
+                                                        <button type="button" class="btn btn-secondary remove-button">Remove</button>
+                                                    </div>
+                                                </td>
+                                            </tr>
+                                            <!-- row -->
+                                            <tr class="text-center">
+                                                <td class="order-id-value">6</td>
+                                                <td class="order-customer-value">Zaiga Gane, Jomas iela 111, Jelgavas novads, Lauki, LV-0000</td>
+                                                <td class="order-count-value">10</td>
+                                                <td class="order-price-value">100000$</td>
+                                                <td class="order-VAT-value ">10$</td>
+                                                <td class="order-total-value">110000$</td>
+                                                <td class="order-status"><span class="badge bg-success">Finished</span></td>
+                                                <td>
+                                                    <div class="d-grid gap-2 d-md-flex justify-content-md-end">
+                                                        <button type="button" class="btn btn-dark edit-order-btn">Edit</button>
+                                                        <button type="button" class="btn btn-secondary remove-button">Remove</button>
+                                                    </div>
+                                                </td>
+                                            </tr>
+                                            <!-- row -->
+                                            <tr class="text-center">
+                                                <td class="order-id-value">5</td>
+                                                <td class="order-customer-value">Zaiga Gane, Jomas iela 111, Jelgavas novads, Lauki, LV-0000</td>
+                                                <td class="order-count-value">6</td>
+                                                <td class="order-price-value">100000$</td>
+                                                <td class="order-VAT-value ">10$</td>
+                                                <td class="order-total-value">110000$</td>
+                                                <td class="order-status"><span class="badge bg-success">Finished</span></td>
+                                                <td>
+                                                    <div class="d-grid gap-2 d-md-flex justify-content-md-end">
+                                                        <button type="button" class="btn btn-dark edit-order-btn">Edit</button>
+                                                        <button type="button" class="btn btn-secondary remove-button">Remove</button>
+                                                    </div>
+                                                </td>
+                                            </tr>
+                                            <!-- row -->
+                                            <tr class="text-center">
+                                                <td class="order-id-value">4</td>
+                                                <td class="order-customer-value">Zaiga Gane, Jomas iela 111, Jelgavas novads, Lauki, LV-0000</td>
+                                                <td class="order-count-value">1</td>
+                                                <td class="order-price-value">100000$</td>
+                                                <td class="order-VAT-value ">10$</td>
+                                                <td class="order-total-value">110000$</td>
+                                                <td class="order-status"><span class="badge bg-success">Finished</span></td>
+                                                <td>
+                                                    <div class="d-grid gap-2 d-md-flex justify-content-md-end">
+                                                        <button type="button" class="btn btn-dark edit-order-btn">Edit</button>
+                                                        <button type="button" class="btn btn-secondary remove-button">Remove</button>
+                                                    </div>
+                                                </td>
+                                            </tr>
+                                            <!-- row -->
+                                            <tr class="text-center">
+                                                <td class="order-id-value">3</td>
+                                                <td class="order-customer-value">Zaiga Gane, Jomas iela 111, Jelgavas novads, Lauki, LV-0000</td>
+                                                <td class="order-count-value">2</td>
+                                                <td class="order-price-value">100000$</td>
+                                                <td class="order-VAT-value ">10$</td>
+                                                <td class="order-total-value">110000$</td>
+                                                <td class="order-status"><span class="badge bg-success">Finished</span></td>
+                                                <td>
+                                                    <div class="d-grid gap-2 d-md-flex justify-content-md-end">
+                                                        <button type="button" class="btn btn-dark edit-order-btn">Edit</button>
+                                                        <button type="button" class="btn btn-secondary remove-button">Remove</button>
+                                                    </div>
+                                                </td>
+                                            </tr>
+                                            <!-- row -->
+                                            <tr class="text-center">
+                                                <td class="order-id-value">2</td>
+                                                <td class="order-customer-value">Zaiga Gane, Jomas iela 111, Jelgavas novads, Lauki, LV-0000</td>
+                                                <td class="order-count-value">30</td>
+                                                <td class="order-price-value">40$</td>
+                                                <td class="order-VAT-value ">10$</td>
+                                                <td class="order-total-value">50$</td>
+                                                <td class="order-status"><span class="badge bg-success">Finished</span></td>
+                                                <td>
+                                                    <div class="d-grid gap-2 d-md-flex justify-content-md-end">
+                                                        <button type="button" class="btn btn-dark edit-order-btn">Edit</button>
+                                                        <button type="button" class="btn btn-secondary remove-button">Remove</button>
+                                                    </div>
+                                                </td>
+                                            </tr>
+                                            <!-- row -->
+                                            <tr class="text-center">
+                                                <td class="order-id-value">1</td>
+                                                <td class="order-customer-value">Maiga Gaisma, Valmieras iela 111, Jelgavas novads, Lauki, LV-0000</td>
+                                                <td class="order-count-value">1</td>
+                                                <td class="order-price-value">5$</td>
+                                                <td class="order-VAT-value ">1$</td>
+                                                <td class="order-total-value">6$</td>
+                                                <td class="order-status"><span class="badge bg-warning">Pending</span></td>
+                                                <td>
+                                                    <div class="d-grid gap-2 d-md-flex justify-content-md-end">
+                                                        <button type="button" class="btn btn-dark edit-order-btn">Edit</button>
+                                                        <button type="button" class="btn btn-secondary remove-button">Remove</button>
+                                                    </div>
+                                                </td>
+                                            </tr>
+
+                                        </tbody>
+                                    </table>
+                                </div>
+                                <!-- table ends -->
+                                <div id="empty-table-message" class="hidden">
+                                    <div class="text-center">
+                                        <p class="lead text-light">
+                                            No orders yet! :(
+                                        </p>
+
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
         </div>
     </div>
-    
-    
-    
-    
-</div>
-      <nav class="navbar-bottom fixed-bottom">
+
+
+
+    <nav class="navbar-bottom fixed-bottom">
         <div class="container-fluid">
             <span class="text-light fw-lighter mb-0 ">&copy; 2021 VinDress</span>
         </div>
     </nav>
 
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta3/dist/js/bootstrap.bundle.min.js" integrity="sha384-JEW9xMcG8R+pH31jmWH6WWP0WintQrMb4s7ZOdauHnUtxwoG2vI5DkLtS3qm9Ekf" crossorigin="anonymous"></script>
+    <!-- jquery -->
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js "></script>
+    <!-- bootstrap -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta3/dist/js/bootstrap.bundle.min.js " integrity="sha384-JEW9xMcG8R+pH31jmWH6WWP0WintQrMb4s7ZOdauHnUtxwoG2vI5DkLtS3qm9Ekf " crossorigin="anonymous "></script>
+    <!-- dataTables -->
+    <script type="text/javascript" charset="utf8" src="https://cdn.datatables.net/1.10.25/js/jquery.dataTables.js "></script>
+    <!-- custom js -->
+    <script src="./js/tables.js"></script>
 </body>
 
 </html>
