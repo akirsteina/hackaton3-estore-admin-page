@@ -164,10 +164,14 @@ $('.edit-category-btn').on('click', function() {
         while (!validateInput(categoryID, categoryTitle, categoryDescription)) {
             return;
         };
-        // how to find the right elements?
-        $(this).parentsUntil('tr').find('.category-id-value').html(categoryID);
-        $(this).parentsUntil('tr').find('.category-title-value').html(categoryTitle);
-        $(this).parentsUntil('tr').find('.category-description-value').html(categoryDescription);
+        console.log(categoryID);
+        console.log(categoryTitle);
+
+        console.log($(`tr:contains('${categoryID}')`).children('.category-title-value').html());
+        $(`tr:contains('${categoryID}')`).children('.category-title-value').html(categoryTitle);
+        $(`tr:contains('${categoryID}')`).children('.category-description-value').html(categoryDescription);
+        // $(`#categories-table [value='${categoryID}']`).find('#edit-category-title').html(categoryTitle);
+        // $(this).parentsUntil('tr').find('.category-description-value').html(categoryDescription);
         $('#edit-table-element-field').toggleClass('hidden');
     });
 })
