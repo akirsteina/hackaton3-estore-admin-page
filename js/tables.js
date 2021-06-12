@@ -38,6 +38,7 @@ $('.remove-button').on('click', function() {
     $(this).parentsUntil('tbody').remove();
     hideCreateTableElement();
     toggleEmptyTableMessage();
+    $('#edit-table-element-field').addClass('hidden');
 });
 
 // toggle create table element field
@@ -48,7 +49,7 @@ $('.toggle-create-table-element-btn').on('click', function() {
     } else {
         toggleEmptyTableMessage();
     }
-
+    $('#edit-table-element-field').addClass('hidden');
 });
 
 const validateInput = (id, title, description) => {
@@ -87,7 +88,7 @@ $('#create-category-form').submit(function(event) {
         <td>
             <div class="d-grid gap-2 d-md-flex justify-content-md-end">
                 <button type="button" class="btn btn-dark edit-category-btn">Edit</button>
-                <button type="button" class="btn btn-primary remove-button">Remove</button>
+                <button type="button" class="btn btn-danger remove-button">Remove</button>
             </div>
         </td>
     </tr>`
@@ -118,8 +119,10 @@ $('.edit-category-btn').on('click', function() {
         while (!validateInput(categoryID, categoryTitle, categoryDescription)) {
             return;
         };
+        // how to find the right elements?
         $(this).parentsUntil('tr').find('.category-id-value').html(categoryID);
         $(this).parentsUntil('tr').find('.category-title-value').html(categoryTitle);
         $(this).parentsUntil('tr').find('.category-description-value').html(categoryDescription);
+        $('#edit-table-element-field').toggleClass('hidden');
     });
 })
