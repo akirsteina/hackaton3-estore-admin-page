@@ -1,0 +1,24 @@
+.login-page {
+    background-image:url(../images/background.jpg);
+    background-size:cover;
+    background-repeat: no-repeat;
+}
+
+.form-signin {
+    
+    background-color: rgb(51, 85, 130, 0.5);
+    width: 100%;
+    max-width: 330px;
+    padding: 15px;
+    margin: auto;
+}
+
+.navbar {
+    background-color: rgb(51, 85, 130);
+}
+
+.btn-primary {
+    background-color: rgb(252, 20, 103);
+    border: rgb(252, 20, 103);
+
+}
