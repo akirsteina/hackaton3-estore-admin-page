@@ -34,9 +34,6 @@ body {
 }
 
 
-/* scrollbar */
-
-
 /* scrollbarr */
 
 body {
@@ -57,4 +54,8 @@ body {
 
  ::-webkit-scrollbar-thumb:hover {
     background: #555;
+}
+
+.products-img {
+    max-width: 100px;
 }

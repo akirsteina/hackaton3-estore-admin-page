@@ -1,8 +1,4 @@
 // initialize dataTables plugin
-$(document).ready(function() {
-    $('.sorted-table').DataTable();
-});
-
 $('#categories-table').dataTable({
     "sDom": 't f',
     "language": {
@@ -16,7 +12,24 @@ $('#categories-table').dataTable({
     ]
 });
 
-// hide create category element if visible
+$('#products-table').dataTable({
+    "sDom": ' f t  p',
+    "language": {
+        "search": "Search products: "
+    },
+    "columns": [
+        { "orderable": false },
+        null,
+        null,
+        null,
+        null,
+        null,
+        { "orderable": false }
+    ]
+});
+
+
+// hide create table element if visible
 const hideCreateTableElement = () => {
     if ($("#create-table-element-field").not('.hidden')) {
         $("#create-table-element-field").addClass("hidden");

@@ -1,4 +1,5 @@
-.dataTables_filter {
+.dataTables_filter,
+#products-table_length {
     padding-top: 20px;
     padding-bottom: 20px;
 }
@@ -16,11 +17,27 @@
 }
 
 #categories-table_filter,
-#categories-table_filter input {
+#categories-table_filter input,
+#products-table_filter,
+#products-table_filter input {
     color: white;
+}
+
+#products-table_paginate>span>a {
+    margin-top: 10px;
+    margin-bottom: 50px;
+    color: #fff !important;
+    background: #343a40 !important;
+    border-color: #343a40 !important;
+}
+
+a#products-table_previous,
+a#products-table_next {
+    color: white !important;
+    padding: 5px;
 }
 
 .table {
     background-color: white;
-    border-radius: 5px;
+    border-radius: 5px !important;
 }
