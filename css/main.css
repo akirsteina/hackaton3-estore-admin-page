@@ -1,3 +1,7 @@
+body {
+    background-color: rgb(51, 85, 130);
+}
+
 .login-page {
     background-image:url(../images/background.jpg);
     background-size:cover;
@@ -13,12 +17,21 @@
     margin: auto;
 }
 
-.navbar {
-    background-color: rgb(51, 85, 130);
+.navbar-bottom {
+    background-color: rgb(33, 57, 88);
+    text-align: left;
+    
 }
 
 .btn-primary {
     background-color: rgb(252, 20, 103);
     border: rgb(252, 20, 103);
 
+}
+
+.side-bar {
+    width: 200px;
+    background-image:url(../images/navbar.jpg);
+    background-size:cover;
+    box-shadow: black, 5px;
 }
