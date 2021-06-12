@@ -18,14 +18,15 @@ $('#products-table').dataTable({
         "search": "Search products: "
     },
     "lengthMenu": [
-        [4, -1],
-        [4, "All"]
+        [5, -1],
+        [5, "All"]
     ],
     "order": [
         [1, 'asc']
     ],
     "columns": [
         { "orderable": false },
+        null,
         null,
         null,
         null,
