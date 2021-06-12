@@ -55,7 +55,7 @@ $('#orders-table').dataTable({
         null,
         null,
         null,
-        { "orderable": false },
+        null,
         { "orderable": false }
     ]
 });
