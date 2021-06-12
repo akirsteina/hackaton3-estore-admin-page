@@ -12,86 +12,262 @@
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.6.0/dist/css/bootstrap.min.css"
         integrity="sha384-B0vP5xmATw1+K9KRQjQERJvTumQW0nPEzvF6L/Z6nronJ3oUOFUFpCjEUQouq2+l" crossorigin="anonymous">
     <link rel="stylesheet" href="./css/main.css">
+    <!-- dataTables -->
 
+    <link rel="stylesheet" type="text/css" href="https://cdn.datatables.net/1.10.25/css/jquery.dataTables.css">
+    <link rel="stylesheet" href="./css/tables.css">
 </head>
 
+
+
 <body>
-    <div class=" container min-w-100 vh-100 m-0 p-0">
-        <div class="row min-w-100 vh-100 m-0 p-0">
-           
-            <div class="d-flex flex-column flex-shrink-0 p-3 text-white bg-dark vh-100 side-bar ">
-                <a href="" class="d-flex align-items-center mb-3 mb-md-0 me-md-auto text-white text-decoration-none logo">
-                    <svg class="bi me-2" width="40" height="32">
-                        <use xlink:href="#bootstrap"></use>
-                    </svg>
-                    <img class="w-100 p-4" src="./images/logo.png" alt="">
-                </a>
-                <hr>
-        
-                <ul class="nav nav-pills flex-column mb-auto">
-        
-                    <li>
-                        <a href="./categories.html" class=" border border-white btn-outline-secondary nav-link text-white fs-5">
-                            <svg class="bi me-2 " width="16" height="16">
-                                <use xlink:href="#table"></use>
-                            </svg>
-                            Categories
-                        </a>
-                    </li>
-                    <li>
-                        <a href="./products.html" class="btn-outline-secondary nav-link text-white fs-5">
-                            <svg class="bi me-2" width="16" height="16">
-                                <use xlink:href="#grid"></use>
-                            </svg>
-                            Products
-                        </a>
-                    </li>
-                    <li>
-                        <a href="./orders.html" class="btn-outline-secondary nav-link text-white fs-5">
-                            <svg class="bi me-2" width="16" height="16">
-                                <use xlink:href="#table"></use>
-                            </svg>
-                            Orders
-                        </a>
-                    </li>
-        
-                    <li>
-                        <a href="./login.html" class="btn-outline-secondary nav-link text-white fs-5">
-                            <svg class="bi me-2" width="16" height="16">
-                                <use href=""></use>
-                            </svg>
-                            Log out
-                        </a>
-                    </li>
-                </ul>
-                <hr>
-        
+    <div class="container-fluid p-0">
+        <div class="row">
+            <div class="col-2">
+                <div class="d-flex flex-column flex-shrink-0 p-3 text-white bg-dark vh-100 side-bar">
+                    <a href="" class="d-flex align-items-center mb-3 mb-md-0 me-md-auto text-white text-decoration-none logo">
+                        <svg class="bi me-2" width="40" height="32"><use xlink:href="#bootstrap"></use></svg>
+                        <img class="w-100 p-4" src="./images/logo.png" alt="">
+                    </a>
+                    <hr>
+                    <ul class="nav nav-pills flex-column mb-auto">
+                        <li>
+                            <a href="./categories.html" class=" border border-white btn-outline-secondary nav-link text-white">
+                                <svg class="bi me-2 " width="16" height="16"><use xlink:href="#table"></use></svg> Categories
+                            </a>
+                        </li>
+                        <li>
+                            <a href="./products.html" class="btn-outline-secondary nav-link text-white">
+                                <svg class="bi me-2" width="16" height="16"><use xlink:href="#grid"></use></svg> Products
+                            </a>
+                        </li>
+                        <li>
+                            <a href="./orders.html" class="btn-outline-secondary nav-link text-white">
+                                <svg class="bi me-2" width="16" height="16"><use xlink:href="#table"></use></svg> Orders
+                            </a>
+                        </li>
+                        <li>
+                            <a href="./login.html" class="btn-outline-secondary nav-link text-white">
+                                <svg class="bi me-2" width="16" height="16"><use href=""></use></svg> Log out
+                            </a>
+                        </li>
+                    </ul>
+                    <hr>
+                </div>
             </div>
-            <div class="me-5 col m-0 p-0">
-                <h3 class="m-3 text-white">Categories</h3>
-               
+
+            <div class="col-10 pr-5">
+                <div class="row">
+                    <div class="col">
+
+                        <div class="row text-end">
+                            <div class="col pt-5">
+                                <button type="button" class="btn btn-dark toggle-create-table-element-btn">Create category</button>
+                            </div>
+                        </div>
+
+                        <!-- create table element field / hidden on default-->
+                        <div class="row hidden" id="create-table-element-field">
+                            <div class="col pt-3">
+                                <form action="" id="create-category-form">
+                                    <div class="row">
+                                        <div class="col text-end">
+                                            <button type="button" class="btn-close" aria-label="Close"></button>
+                                        </div>
+                                        <div class="col-12 text-center">
+                                            <p class="lead">Create a new category!</p>
+                                        </div>
+                                        <div class="col-sm-12 col-md-6">
+                                            <div>
+                                                <label for="category-id" class="form-label">ID:</label>
+                                                <input type="text" class="form-control" id="category-id" placeholder="Insert category ID" aria-label="id">
+                                            </div>
+                                        </div>
+                                        <div class="col-sm-12 col-md-6">
+                                            <div>
+                                                <label for="category-title" class="form-label">Title:</label>
+                                                <input type="text" class="form-control" id="category-title" placeholder="Insert category title" aria-label="category-title">
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="row">
+                                        <div class="col-sm-12 col-lg-10">
+                                            <label for="category-description" class="form-label mt-3">Category description:</label>
+                                            <textarea class="form-control mb-3" id="category-description" rows="3" placeholder="..."></textarea>
+                                        </div>
+                                        <div class="col-sm-12 col-lg-2 mb-3 d-grid gap-2">
+                                            <button type="submit" class="btn btn-dark align-self-end" id="create-category-btn">Create!</button>
+                                        </div>
+                                    </div>
+                                </form>
+                            </div>
+                        </div>
+
+                        <!-- edit category field -->
+                        <div class="row hidden" id="edit-table-element-field">
+                            <div class="col pt-3">
+                                <form action="" id="edit-category-form">
+                                    <div class="row">
+                                        <div class="col text-end">
+                                            <button type="button" class="btn-close" aria-label="Close"></button>
+                                        </div>
+                                        <div class="col-12 text-center">
+                                            <p class="lead">Edit category details!</p>
+                                        </div>
+                                        <div class="col-sm-12 col-md-6">
+                                            <div>
+                                                <label for="edit-category-id" class="form-label">Edit category ID:</label>
+                                                <input type="text" class="form-control" id="edit-category-id" aria-label="id" value="">
+                                            </div>
+                                        </div>
+                                        <div class="col-sm-12 col-md-6">
+                                            <div>
+                                                <label for="edit-category-title" class="form-label">Title:</label>
+                                                <input type="text" class="form-control" id="edit-category-title" aria-label="category-title" value="">
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="row">
+                                        <div class="col-sm-12 col-lg-10">
+                                            <label for="edit-category-description" class="form-label mt-3">Category description:</label>
+                                            <textarea class="form-control mb-3" id="edit-category-description" rows="3" value=""></textarea>
+                                        </div>
+                                        <div class="col-sm-12 col-lg-2 mb-3 d-grid gap-2">
+                                            <button type="submit" class="btn btn-dark align-self-end" id="edit-category-btn">Submit changes!</button>
+                                        </div>
+                                    </div>
+
+                                </form>
+                            </div>
+                        </div>
+
+
+                        <!-- table row -->
+                        <div class="row">
+                            <div class="col">
+                                <div class="table-responsive pt-5">
+                                    <table class="table table-hover table-responsive" id="categories-table">
+                                        <!-- table head -->
+                                        <thead>
+                                            <tr>
+                                                <th scope="col">#</th>
+                                                <th scope="col">Title</th>
+                                                <th scope="col" class="text-center">Description</th>
+                                                <th scope="col"></th>
+
+                                            </tr>
+                                        </thead>
+                                        <!-- table body  -->
+                                        <tbody>
+                                            <!-- row -->
+                                            <tr>
+                                                <th scope="col" class="category-id-value">0567</th>
+                                                <td class="category-title-value">Accessories</td>
+                                                <td class="category-description-value">Accessories for everyone random words to fill space! </td>
+                                                <td>
+                                                    <div class="d-grid gap-2 d-md-flex justify-content-md-end">
+                                                        <button type="button" class="btn btn-dark edit-category-btn">Edit</button>
+                                                        <button type="button" class="btn btn-secondary remove-button">Remove</button>
+                                                    </div>
+                                                </td>
+                                            </tr>
+
+                                            <!-- row -->
+                                            <tr>
+                                                <th scope="col" class="category-id-value">1667</th>
+                                                <td class="category-title-value">Tops</td>
+                                                <td class="category-description-value">All kinds of tops that go together with bottoms.
+                                                </td>
+                                                <td>
+                                                    <div class="d-grid gap-2 d-md-flex justify-content-md-end">
+                                                        <button type="button" class="btn btn-dark edit-category-btn">Edit</button>
+                                                        <button type="button" class="btn btn-secondary remove-button">Remove</button>
+                                                    </div>
+                                                </td>
+                                            </tr>
+                                            <!-- row -->
+                                            <tr>
+                                                <th scope="col" class="category-id-value">2222</th>
+                                                <td class="category-title-value">Shoes</td>
+                                                <td class="category-description-value">Small shoes, big shoes, even shoes for dresses. Blah, blah, blah.
+                                                </td>
+                                                <td>
+                                                    <div class="d-grid gap-2 d-md-flex justify-content-md-end">
+                                                        <button type="button" class="btn btn-dark edit-category-btn">Edit</button>
+                                                        <button type="button" class="btn btn-secondary remove-button">Remove</button>
+                                                    </div>
+                                                </td>
+                                            </tr>
+                                            <!-- row -->
+                                            <tr>
+                                                <th scope="col" class="category-id-value">3581</th>
+                                                <td class="category-title-value">Bottoms</td>
+                                                <td class="category-description-value">Molestias facilis iusto repellat tempore alias vel! Vel repudiandae necessitatibus quasi explicabo, fugiat vitae! Lorem ipsum dolor sit amet consectetur adipisicing elit. Tempora obcaecati doloribus quia,
+                                                    velit laboriosam laborum sit officia quisquam, dignissimos expedita, possimus nesciunt dolorem ducimus deserunt facere beatae tenetur sapiente laudantium?
+                                                </td>
+                                                <td>
+                                                    <div class="d-grid gap-2 d-md-flex justify-content-md-end">
+                                                        <button type="button" class="btn btn-dark edit-category-btn">Edit</button>
+                                                        <button type="button" class="btn btn-secondary remove-button">Remove</button>
+                                                    </div>
+                                                </td>
+                                            </tr>
+                                            <!-- row -->
+                                            <tr>
+                                                <th scope="col" class="category-id-value">4610</th>
+                                                <td class="category-title-value">Dresses</td>
+                                                <td class="category-description-value">Accessories ipsum dolor, sit amet consectetur adipisicing elit.
+                                                </td>
+                                                <td>
+                                                    <div class="d-grid gap-2 d-md-flex justify-content-md-end">
+                                                        <button type="button" class="btn btn-dark edit-category-btn">Edit</button>
+                                                        <button type="button" class="btn btn-secondary remove-button">Remove</button>
+                                                    </div>
+                                                </td>
+                                            </tr>
+
+                                        </tbody>
+
+                                    </table>
+                                </div>
+                                <div id="empty-table-message" class="hidden">
+                                    <div class="text-center">
+                                        <p class="lead text-light">
+                                            Categories list is empty!
+                                        </p>
+                                        <div class="col pt-2">
+                                            <button type="button" class="btn btn-dark toggle-create-table-element-btn">Create category</button>
+                                        </div>
+                                    </div>
+                                </div>
+                                <!-- table ends -->
+
+                            </div>
+                        </div>
+
+
+
+                    </div>
+                </div>
             </div>
         </div>
-        
-        
-        
-        
-    </div>
 
 
-   
+        <nav class="navbar-bottom fixed-bottom ">
+            <div class="container-fluid ">
+                <span class="text-light mb-0 ">&copy; 2021 VinDress</span>
+            </div>
+        </nav>
 
 
-
-    <nav class="navbar-bottom fixed-bottom">
-        <div class="container-fluid">
-            <span class="text-light fw-lighter mb-0 ">&copy; 2021 VinDress</span>
-        </div>
-    </nav>
-
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta3/dist/js/bootstrap.bundle.min.js"
-        integrity="sha384-JEW9xMcG8R+pH31jmWH6WWP0WintQrMb4s7ZOdauHnUtxwoG2vI5DkLtS3qm9Ekf"
-        crossorigin="anonymous"></script>
+        <!-- jquery -->
+        <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js "></script>
+        <!-- bootstrap -->
+        <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta3/dist/js/bootstrap.bundle.min.js " integrity="sha384-JEW9xMcG8R+pH31jmWH6WWP0WintQrMb4s7ZOdauHnUtxwoG2vI5DkLtS3qm9Ekf " crossorigin="anonymous "></script>
+        <!-- dataTables -->
+        <script type="text/javascript" charset="utf8" src="https://cdn.datatables.net/1.10.25/js/jquery.dataTables.js "></script>
+        <!-- custom js -->
+        <script src="./js/tables.js "></script>
 </body>
 
 </html>
