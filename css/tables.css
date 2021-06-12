@@ -1,0 +1,14 @@
+.dataTables_filter {
+    padding-top: 20px;
+    padding-bottom: 20px;
+}
+
+.hidden {
+    display: none;
+}
+
+#create-category-form {
+    padding: 10px;
+    border: 1px solid #212529;
+    border-radius: 5px;
+}
