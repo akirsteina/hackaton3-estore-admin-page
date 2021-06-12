@@ -1,4 +1,5 @@
 // initialize dataTables plugin
+// for categories page
 $('#categories-table').dataTable({
     "sDom": 't f',
     "language": {
@@ -12,6 +13,7 @@ $('#categories-table').dataTable({
     ]
 });
 
+// for products page
 $('#products-table').dataTable({
     "sDom": ' f t  p',
     "language": {
@@ -36,6 +38,7 @@ $('#products-table').dataTable({
     ]
 });
 
+// for orders page
 $('#orders-table').dataTable({
     "sDom": ' f t  p',
     "language": {
@@ -61,13 +64,14 @@ $('#orders-table').dataTable({
 });
 
 
-// hide create table element if visible
+// hide <create table element> if visible
 const hideCreateTableElement = () => {
     if ($("#create-table-element-field").not('.hidden')) {
         $("#create-table-element-field").addClass("hidden");
     }
 }
 
+// if no table elements in table body, remove class hidden from empty-table-message
 const toggleEmptyTableMessage = () => {
     let tableElementCount = 0;
     $('tbody > tr').each(() => {
@@ -97,6 +101,7 @@ $('.toggle-create-table-element-btn').on('click', function() {
     $('#edit-table-element-field').addClass('hidden');
 });
 
+// validate if input contains a string
 const validateInput = (id, title, description) => {
     if (id === '' && title === '' && description === '') {
         return;
