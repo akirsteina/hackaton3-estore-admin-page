@@ -11,4 +11,14 @@
     padding: 10px;
     border: 1px solid #212529;
     border-radius: 5px;
+    background-color: white;
+}
+
+#categories-table_filter,
+#categories-table_filter input {
+    color: white;
+}
+
+.table {
+    background-color: white;
 }
