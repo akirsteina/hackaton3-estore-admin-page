@@ -90,17 +90,6 @@ $('.remove-button').on('click', function() {
     $('#edit-table-element-field').addClass('hidden');
 });
 
-// toggle create table element field
-$('.toggle-create-table-element-btn').on('click', function() {
-    $("#create-table-element-field").toggleClass("hidden");
-    if ($('#create-table-element-field').not('.hidden')) {
-        $("#empty-table-message").addClass("hidden");
-    } else {
-        toggleEmptyTableMessage();
-    }
-    $('#edit-table-element-field').addClass('hidden');
-});
-
 // validate if input contains a string
 const validateInput = (id, title, description) => {
     if (id === '' && title === '' && description === '') {
@@ -117,6 +106,20 @@ const validateInput = (id, title, description) => {
     }
     return true;
 };
+
+// toggle create table element field
+$('.toggle-create-table-element-btn').on('click', function() {
+    $("#create-table-element-field").toggleClass("hidden");
+    const ID = generateID();
+    $('#category-id').val(ID);
+    if ($('#create-table-element-field').not('.hidden')) {
+        $("#empty-table-message").addClass("hidden");
+    } else {
+        toggleEmptyTableMessage();
+    }
+    $('#edit-table-element-field').addClass('hidden');
+});
+
 
 // create category element
 $('#create-category-form').submit(function(event) {
@@ -179,3 +182,20 @@ $('.btn-close').on('click', function() {
     $('#create-table-element-field').addClass('hidden');
     $('#edit-table-element-field').addClass('hidden');
 });
+
+// generate random 4-number ID and check if it is not already in use
+const generateID = () => {
+    let IDArray = [];
+    for (let i = 0; i < 4; i++) {
+        IDArray.push(Math.floor(Math.random() * 10));
+    }
+    const ID = IDArray.join('');
+    let allIDs = [];
+    $('.category-id-value').each(() => {
+        allIDs += $('.category-id-value').find(ID);
+    });
+    if (allIDs.includes(ID)) {
+        generateID();
+    }
+    return ID;
+}
